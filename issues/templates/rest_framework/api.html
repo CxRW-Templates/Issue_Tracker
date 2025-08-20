@@ -1,0 +1,64 @@
+{% extends "rest_framework/base.html" %}
+{% load rest_framework %}
+
+{% block title %}Issue Tracker API{% endblock %}
+
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='/'>
+        Issue Tracker API
+    </a>
+{% endblock %}
+
+{% block bootstrap_navbar_variant %}navbar-dark bg-dark{% endblock %}
+
+{% block style %}
+    {{ block.super }}
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        .well {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .request-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #007cba;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="content-main">
+        <div class="page-header">
+            <h1>{{ name|break_long_headers }}</h1>
+        </div>
+        <div class="well">
+            <p>Welcome to the Issue Tracker REST API. This API provides endpoints for managing issues with create, read, update, and delete operations.</p>
+            
+            <h3>Available Endpoints:</h3>
+            <ul>
+                <li><strong>POST /api/issues/</strong> - Create a new issue</li>
+                <li><strong>GET /api/issues/</strong> - List all issues (supports ?status= filter)</li>
+                <li><strong>GET /api/issues/{id}/</strong> - Retrieve a specific issue</li>
+                <li><strong>PATCH /api/issues/{id}/</strong> - Update an issue</li>
+                <li><strong>DELETE /api/issues/{id}/</strong> - Delete an issue</li>
+            </ul>
+            
+            <h3>Issue Status Options:</h3>
+            <ul>
+                <li>open</li>
+                <li>in_progress</li>
+                <li>closed</li>
+            </ul>
+        </div>
+        
+        {{ block.super }}
+    </div>
+{% endblock %}
