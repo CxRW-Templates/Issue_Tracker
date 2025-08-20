@@ -1,6 +1,6 @@
 # Issue Tracker REST API
 
-A minimal but realistic Issue Tracker REST API built with Django and Django REST Framework.
+A minimalist Issue Tracker REST API built with Django and Django REST Framework.
 
 ## Features
 
